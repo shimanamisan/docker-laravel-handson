@@ -20,6 +20,8 @@ services:
     build: ./infra/mysql
     volumes:
       - db-store:/var/lib/mysql
-      
+
 volumes:
-  db-store:
+  db-store: # 名前付きボリュームというもの（docker側で管理しているディレクトリのようなもの）
+  # dockerコンテナが消えてもデータを残したい場合はデータボリュームを作ってマウントさせている
+  # 次回 docker-compose up をした時にこのボリューム内のデータを db-store:/var/lib/mysql にコピーする
